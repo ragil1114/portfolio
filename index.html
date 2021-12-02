@@ -1,17 +1,63 @@
 <!DOCTYPE html>
-<html lang="en-us"
+<html lang="en-us">
 
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./assets/css/style.css"
-        <title>Ragfolio&#174;</title>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <title>Rahil</title>
     </head>
 
     <body>
         <header>
-            <a href="">Ragfolio&#174;</a>
+            <h1>
+                <a href="">Pro Folio</a>
+            </h1>
+            <nav>
+                <ul>
+                  <li>
+                    <a href="#about-me">About Me</a>
+                  </li>
+                  <li>
+                    <a href="#my-work">My Work</a>
+                  </li>
+                  <li>
+                    <a href="#reach-out">Reach Out</a>
+                  </li>
+                </ul>
+              </nav>
         </header>
+
+        <hero>
+          <!-- The video -->
+          <video autoplay muted loop id="myVideo">
+              <source src="space.mp4" type="video/mp4">
+          </video>
+
+          <!-- Optional: some overlay text to describe the video -->
+          <div class="content">
+            <h1>Heading</h1>
+            <p>Lorem ipsum...</p>
+            <!-- Use a button to pause/play the video with JavaScript -->
+            <button id="myBtn" onclick="myFunction()">Pause</button>
+          </div>
+        </hero>
+
+          <!-- "about me" section -->
+        <section id="about-me" class="intro"> <!-- ID attribute used here to allow visitors to jump to this section by clicking its link in the navigation bar -->
+            <div class="flex-row"> <!-- added <div> element with class attribute here to wrap the <h2> with flexbox -->
+                <h2 class="section-title primary-border"> <!-- Separated here by a space, the attribute class="section-title primary-border" is actually pulling in CSS declarations from two different classes. -->
+                    About Me
+                </h2> 
+            </div>
+
+            <div class="flex-row">
+                <p>
+                    
+                </p>
+            </div>
+        </section>
 
         <footer>
 
