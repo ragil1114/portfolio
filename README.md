@@ -26,10 +26,11 @@ THEN I am presented with a responsive layout that adapts to my viewport.
 #### Links
 URL: 
 
+
 Git: 
+https://github.com/ragil1114/portfolio.git
 
-
-Borrowed Resources: 
+Assets: 
 Social Media Images-
 https://www.w3schools.com/howto/howto_css_social_media_buttons.asp
 
