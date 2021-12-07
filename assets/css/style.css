@@ -1,48 +1,476 @@
-/* Global custom property (Variable) */
-:root {
-    --primary-color: #fce138;
-    --secondary-color: #024e76;
-    --tertiary-color: #39a6b2;
-}
-
-/* Universal * selector to be applied to entire document. */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Style the video: 100% width and height to cover the entire window */
-#myVideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
+    /* Global custom property (Variable) */
+  :root {
+      --primary-color: #fce138;
+      --secondary-color: #024e76;
+      --tertiary-color: #39a6b2;
   }
   
-  /* Add some content at the bottom of the video/page */
-  .content {
-    position: fixed;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    color: #f1f1f1;
-    width: 100%;
+      /* Universal * selector to be applied to entire document. */
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  body {
+      color: var(--tertiary-color);
+      background-color: #d9dcd6;
+      font-family: Helvetica, Arial, sans-serif;
+  }
+  
+  header {
+      padding: 20px 35px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      display: flex;      /* First added flexbox feature. Replaced Version 1.0 values of "float:right" & "display:inline". */
+      justify-content: space-between;     /* Evenly spaces out by calculating margin, border-width, padding & content of each child element. */
+      flex-wrap: wrap;    /* Allows content to be pushed to next line if it doesn't all fit. */
+      position: -webkit-sticky;   /* Vendor Prefix: -webkit- attached for Safari browser users. Always list the prefixed version first before the standard/finalized one. */
+      position: sticky;   /* adds fixed position to header */ 
+      top: 0;     /* tells browser where to stick the element when its in fixed position */
+      background-image: url("../images/earth.jpg");     /* This & the following two properties, style the header to match the hero section. */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;   
+      background-position: 80%;
+      z-index: 9999;      /* This property changes the stacking order of the HTML elements on the page. A higher z-index brings the element to the front while a lower z-index pushes it to the back. */
+  }
+  
+  header h1 {
+      font-weight: bold;
+      font-size: 36px;
+      color: var(--primary-color);
+      margin: 0;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);   /* adds shadow to text */
+  }
+  
+  header a {
+      text-decoration: none;
+      color: var(--primary-color);
+  }
+  
+  header nav {
+      margin: 7px 0;
+  }
+  
+    /* This rule is known as the Flex Container since it has the "display: flex;" property & value. "Row" is the default value of "flex-direction" property. The flex-direction values: (row/column) determine the Main Axis. Thus allowing the Cross Axis to run perpendicular. */
+  header nav ul { 
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between; /* This property follows the Main Axis. */
+      align-items: center; /* This property follows the Cross Axis. In this case it vertically centers the content. */
+      list-style: none;
+  }
+  
+  header nav ul li a {                                            
+      padding: 10px 15px;
+      font-weight: lighter;
+      font-size: 2vw; /* Viewport Width value */
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+      /* Pseudo-Class: adds hover effect to the element. */
+  header nav ul li a:hover {
+      background: var(--primary-color);
+      color: var(--secondary-color);
+      border-radius: 15px;
+      text-shadow: none;
+  }
+  
+  p {
+      font-size: 16px;
+  }
+  
+    /* A period indicates its a class selector. Look for a matching class attribute in the HTML doc. */
+  .hero {
+      background-image: url("../images/earth.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      background-attachment: fixed;   /* Find the two identical declarations in header rule. This makes it so the header looks apart of the hero section. */
+      background-position: 80%;     /* ^^ */
+  }
+  
+  .hero-bio {
+      opacity: 50%;
+      border-radius: 50%;
+  }
+
+  .hero-bio:hover {
+      opacity: 100%;
+      border-radius: 50%;
+  }
+  
+  .intro {
+    background-image: url("../images/earth.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+  }
+
+      /* Intro selectors style the About Me section. Look for the identical class attributes & elements in HTML doc. */
+  .intro p {
+      line-height: 1.7;
+      color: white;
+      width: 80%;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0 auto;  /* Center aligns content */
+      text-align: center;
+  }
+  
+    /* Steps selectors style the My Work section. */
+  .steps {
+      background-image: url("../images/earth.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed; 
+  }
+  
+    /* styles all HTML elements with "step" class attribute with flexbox */
+  .step {
+      margin: 50px auto;
+      padding-bottom: 50px;
+      width: 80%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--tertiary-color);
+      text-align: center;
+  }
+  
+      /* rule for state based on Positioning */
+  .step:last-child {
+      border-bottom: none;
+  }
+  
+    /* renamed selector from ".steps h3" to apply flexbox */
+  .step h3 {
+      color: var(--secondary-color);
+      font-size: 46px;
+      flex: 1 30%;
+  }
+  
+  .step-info {
+      flex: 2 70%; /* <flex> property declared with <grow/shrink/basis> values */
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+  }
+  
+  .step-img {
+      flex: 1 12%;
+      margin-right: 20px;
+      opacity: 25%;
+  }
+
+  .step-img:hover {
+      opacity: 100%;
+      ;
+  }
+  
+  .step-text {
+      flex: 12;
+  }
+  
+  .step-text h4 {
+      font-size: 26px;
+      line-height: 1.5;
+      color: var(--secondary-color);
+  }
+  
+    /* This is the shorthand rule of the .intro h2{} & .steps h2{} selectors that were replaced (combined then deleted) to make this one. Since they contain the same declarations. */
+    /* also used for reach-out section */
+  .section-title {
+      font-size: 48px;
+      color: var(--primary-color);
+      border-bottom: 3px solid;
+      padding-bottom: 20px;
+      text-align: center;
+      margin: 0 auto 35px auto;
+      width: 50%;
+  }
+    
+    /* selector for About Me section */
+  .primary-border {
+      border-color: var(--tertiary-color);
+  }
+    
+    /* selector for My Work section */
+  .secondary-border {
+      border-color: var(--tertiary-color);
+  }
+  
+    /* AKA: utility class. Rule can be applied to any HTML element that needs a quick fix to their text-align properties */
+  .text-left {
+      text-align: left;
+  }
+    
+    /* identify the matching class attribute in HTML doc */
+  .text-right {
+      text-align: right;
+  }
+  
+    /* styles the reach-out section */
+  .contact {
+      background-image: url("../images/earth.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed; 
+  }
+  
+  .contact h2 {
+      color: var(--primary-color);
+  } 
+  
+  .contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  
+  .contact-info div {
+      color: white;
+  }
+  
+  .contact-info h3 {
+      color: var(--primary-color);
+      font-size: 32px;
+  }
+    
+  .contact-info p, .contact-info address {
+      margin: 20px 0;
+      line-height: 1.5;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: bold;
+      color: white;
+  }
+    
+  .contact-info a {
+      color: var(--primary-color);
+  }
+  
+    /* adds flexbox to child elements in reach-out section */
+  .contact-form input, .contact-form textarea {
+      border: 1px solid var(--secondary-color);
+      display: block;
+      padding: 7px 15px;
+      font-size: 16px;
+      color: var(--secondary-color);
+      width: 100%;
+      margin-bottom: 15px;
+      margin-top: 5px;
+      border-radius: 10px;
+      background-color: rgba(255,255,255,0.75);
+      outline: none;
+  }
+  
+      /* Pseudo-Class: rule for focus state */
+  .contact-form input:focus, .contact-form textarea:focus {
+      background-color: rgba(255,255,255, 1);
+      outline: none;
+  }
+  
+    /* adds flexbox to child elements in reach-out section */
+  .contact-form button {
+      width: 100%;
+      border: none;
+      background: var(--primary-color);
+      color: var(--secondary-color);
+      text-align: center;
+      padding: 15px 0;
+      font-size: 16px;
+      border-radius: 10px;
+  }
+  
+      /* Pseudo-Class: adds hover effect to the element */
+  .contact-form button:hover {
+      color: var(--primary-color);
+      background: var(--tertiary-color);
+  }
+  
+  footer {
+      background-image: url("../images/earth.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed; 
+      width: 100%;
+      padding: 40px 35px;
+      display: flex; /* adds flexbox to footer */
+      justify-content: space-between;
+      flex-wrap: wrap;
+  }
+  
+  footer h2 {
+      color: var(--primary-color);
+      font-size: 30px;
+      margin: 0;
+  }
+  
+  footer div {
+      color: var(--primary-color);
+      line-height: 1.5;
+      text-align: right;
+  }
+  
+  footer a {
+      color: var(--primary-color);
+  }
+  
+  .fa {
     padding: 20px;
+    font-size: 0px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
   }
   
-  /* Style the button used to pause/play the video */
-  #myBtn {
-    width: 200px;
-    font-size: 18px;
-    padding: 10px;
-    border: none;
-    background: #000;
-    color: #fff;
-    cursor: pointer;
+  .fa:hover {
+      opacity: 0.7;
   }
   
-  #myBtn:hover {
-    background: #ddd;
-    color: black;
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+
+  .fa-google {
+    background: #dd4b39;
+    color: white;
+  }
+
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+  }
+
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+    /* rule to be followed by every section element */
+  section {
+      padding: 60px;
+  }
+  
+  .flex-row {
+      display: flex;
+  }
+  
+    /* MEDIA QUERY FOR SMALL DESKTOP SCREENS AND SMALLER */
+  @media screen and (max-width: 980px) {
+      /* this will be applied on any screen smaller than 980px */
+    header {
+        padding-bottom: 0;
+        justify-content: center;
+        position: relative
+    }
+    
+    header h1 {
+        width: 100%;
+        text-align: center;
+    }
+    
+    header nav ul {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    header nav ul li a {
+        font-size: 20px;
+    }
+    
+    footer h2, footer div {
+        text-align: center;
+        width: 100%;
+    }
+  
+    .hero-cta, .hero-form {
+        width: 100%;
+    }
+      
+    .hero-cta {
+        text-align: center;
+    }
+  
+    .section-title {
+        width: 80%;
+    }
+      
+    .trainer {
+        flex: 0 70%;
+    }
+      
+    .contact-info iframe{
+        flex: 1 100%;
+    }
+  }
+  
+    /* MEDIA QUERY FOR TABLETS AND SMALLER */
+  @media screen and (max-width: 768px) {
+      /* this will be applied on any screen between 768px and 575px */
+    section {
+        padding: 30px 15px;
+    }
+  
+    .step h3 {
+        flex: 1 100%;
+        text-align: center;
+    }
+    
+    .step-info {
+        flex: 2 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .step-img {
+        flex: 0 32%;  /* flex-grow=0 & flex-basis=32%. This means the width of img is capped at 32% & that it won't use any extra space since grow set to 0. */
+        margin-right: 0;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .step-text {
+        flex: 100%;  
+    }
+  }
+  
+    /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+  @media screen and (max-width: 575px) {
+      /* this will be applied on any screen smaller than 575px */
+    .hero-form button {
+        width: 100%;
+    }
+    
+    .section-title {
+        width: 95%;
+    }
+    
+    .intro p {
+        width: 100%;
+    }
+    
+    .trainer {
+        flex: 0 100%;
+    }
+    
+    .contact-info {
+        text-align: center;
+    }
+    
+    .contact-info > * {
+        flex: 0 100%;
+    }
+  
+    .contact-form {
+        order: 3;
+    }
   }
